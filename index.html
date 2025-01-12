@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Expanding Cards with Tailwind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
+    <style>
+      * {
+        font-family: 'Product Sans Light', sans-serif;
+      }
+
+      .rounded-5xl {
+        border-radius: 4rem;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900">
+    <div class="container m-auto h-screen p-5">
+      <h1 class="text-center mt-4 mb-2 text-3xl text-white">Expanding Cards with Tailwind</h1>
+      <p class="text-center mb-10 text-lg text-white">
+        A responsive expanding card gallery using Tailwind CSS and JavaScript with smooth transitions and a focus effect.
+      </p>
+
+      <!-- Main Cards Here -->
+      <div class="flex items-center justify-center">
+        <div class="flex w-[90vw] overflow-hidden transition-all duration-700 ease-in-out">
+          <!-- Card 1 -->
+          <div
+            class="card relative flex-[5] h-[70vh] m-2 rounded-5xl bg-cover bg-center bg-no-repeat cursor-pointer transition-[flex] duration-700 ease-in-out flex items-end p-5 text-white"
+            style="background-image: url('https://cdn.pixabay.com/photo/2021/07/26/01/47/woman-6493189_1280.jpg');"
+            onclick="expandCard(this)">
+            <h3 class="text-xl transition-opacity duration-300 ease-in delay-400 mb-6 ms-6">Girl In Garden</h3>
+          </div>
+          <!-- Card 2 -->
+          <div
+            class="card relative flex-[0.5] h-[70vh] m-2 rounded-5xl bg-cover bg-center bg-no-repeat cursor-pointer transition-[flex] duration-700 ease-in-out flex items-end p-5 text-white"
+            style="background-image: url('https://cdn.pixabay.com/photo/2019/06/25/04/01/wedding-4297343_1280.jpg');"
+            onclick="expandCard(this)">
+            <h3 class="text-xl opacity-0 transition-opacity duration-300 ease-in delay-400 mb-6 ms-6">Couple</h3>
+          </div>
+          <!-- Card 3 -->
+          <div
+            class="card relative flex-[0.5] h-[70vh] m-2 rounded-5xl bg-cover bg-center bg-no-repeat cursor-pointer transition-[flex] duration-700 ease-in-out flex items-end p-5 text-white"
+            style="background-image: url('https://cdn.pixabay.com/photo/2024/12/09/16/22/boat-9255590_1280.jpg');"
+            onclick="expandCard(this)">
+            <h3 class="text-xl opacity-0 transition-opacity duration-300 ease-in delay-400 mb-6 ms-6">Boat Night</h3>
+          </div>
+          <!-- Card 4 -->
+          <div
+            class="card relative flex-[0.5] h-[70vh] m-2 rounded-5xl bg-cover bg-center bg-no-repeat cursor-pointer transition-[flex] duration-700 ease-in-out flex items-end p-5 text-white hidden md:flex"
+            style="background-image: url('https://cdn.pixabay.com/photo/2020/07/30/10/29/woman-5450043_1280.jpg');"
+            onclick="expandCard(this)">
+            <h3 class="text-xl opacity-0 transition-opacity duration-300 ease-in delay-400 mb-6 ms-6">Beautiful Girl</h3>
+          </div>
+          <!-- Card 5 -->
+          <div
+            class="card relative flex-[0.5] h-[70vh] m-2 rounded-5xl bg-cover bg-center bg-no-repeat cursor-pointer transition-[flex] duration-700 ease-in-out flex items-end p-5 text-white hidden md:flex"
+            style="background-image: url('https://cdn.pixabay.com/photo/2019/11/10/11/13/couple-4615557_1280.jpg');"
+            onclick="expandCard(this)">
+            <h3 class="text-xl opacity-0 transition-opacity duration-300 ease-in delay-400 mb-6 ms-6">Love</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function expandCard(card) {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((c) => {
+          c.classList.remove('flex-[5]');
+          c.classList.add('flex-[0.5]');
+          c.querySelector('h3').classList.add('opacity-0');
+        });
+        card.classList.remove('flex-[0.5]');
+        card.classList.add('flex-[5]');
+        card.querySelector('h3').classList.remove('opacity-0');
+      }
+    </script>
+  </body>
+</html>
